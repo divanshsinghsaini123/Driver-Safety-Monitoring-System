@@ -4,17 +4,26 @@ import numpy as np
 import tensorflow as tf
 from keras.models import load_model
 from tensorflow.keras.utils import img_to_array
-from playsound import playsound
+# from playsound import playsound
 from threading import Thread
 import torch
 import streamlit as st
 import tempfile
-
+import simpleaudio as sa
 
 # Function to play alarm sound
 def start_alarm(sound):
-    """Play the alarm sound"""
-    playsound('data/alarm.mp3')
+    """Play the alarm sound using simpleaudio"""
+    sa.WaveObject.from_wave_file(sound).play().wait_done()
+
+# Example usage
+start_alarm('data/alarm.wav')
+
+
+# Function to play alarm sound
+# def start_alarm(sound):
+#     """Play the alarm sound"""
+#     playsound('data/alarm.mp3')
 
 
 # Constants
